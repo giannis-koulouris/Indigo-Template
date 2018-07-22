@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,600,700');
+
+
+*,*::before,*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    --bg:rgba(44,62,80,0.8); /* Το ορίζω εδώ ώστε να μπορώ να αλλάζω το χρώμα στα διαφορετικά divs χωρίς να επαναλαμβάνω κώδικα */
+}
+body, input, button, select, option, textarea {
+    font-family: 'Poppins', sans-serif; 
+    color: #2c3e50;
+    font-size:14px;
+}
+h2{
+    font-size:24px;
+    letter-spacing: .2rem;
+}
+.container{
+    display:grid;
+    grid-template-columns: 6% repeat(3, 1fr) 6%;
+    grid-template-areas: 
+    ". header header header ."
+    "hero hero hero hero hero"
+    "services services services services services"
+    "hero2 hero2 hero2 hero2 hero2"
+    ". recent recent recent ."
+    "hero3 hero3 hero3 hero3 hero3"
+    "contact contact contact contact contact"
+    "hero4 hero4 hero4 hero4 hero4"
+    "footer footer footer footer footer";
+    background: #F6F8F9;
+}
+/*** Navbar CSS ****/
+.navbar{
+    position:relative;
+    grid-area:header;
+    height:80px;
+}
+.logo{
+    position: absolute;
+    font-weight: bold;
+    top:50%;
+    left:0;
+    transform: translateY(-50%);
+}
+.logo a{
+    text-decoration:none;
+    color: #2c3e50;
+    padding:15px 10px;
+    font-size:24px;
+}
+.navbar ul{
+    display:flex;
+    list-style: none;
+    justify-content: flex-end;
+    line-height: 50px;
+    font-weight: 600;
+}
+.navbar ul li:hover{
+    background:white;
+}
+.navbar ul li a{
+    text-decoration: none;
+    font-size: 12px;
+    padding:15px;
+    display:block;
+    color: #2c3e50;
+}
+.navbar ul ul{
+    position: absolute;
+    min-width: 180px;
+    background: white;
+    display:none;
+    padding:1em;
+    z-index: 1;
+    line-height: normal;
+}
+.navbar ul ul li{
+    display:block;
+    font-weight: 400;
+}
+.navbar ul ul li a{
+    padding:.2em;
+}
+.navbar ul ul.show{
+    display:block;
+}
+.active{ /* Active link effect*/
+    background: white;
+}
+
+/*** Hero CSS ***/
+
+.hero{
+    grid-area:hero;
+    position:relative;
+    height:100vh;
+    width:100%;
+    overflow: hidden;
+    text-align: center;
+    color:white;
+    background:linear-gradient(rgba(44,62,80,0.8),rgba(44,62,80,0.8)), url(images/hero.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.hero__items{
+    position: absolute;
+    top:50%; 
+    transform: translateY(-50%);
+    margin:1rem;
+}
+
+.title{
+    /* color:white; */
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-weight: 600;
+    display: inline-block;
+    padding: 30px 60px;
+    border: 1px solid;;
+    margin:1rem 0;
+    z-index: 1;
+}
+.lead{
+    margin:0 200px;
+    font-size:24px;
+}
+
+/** Buttons CSS ***/
+
+.btn{
+    padding:1rem 2rem;
+    color:white;
+    text-decoration: none;
+    display:inline-block;
+    margin:2rem .5rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+    background: #1ABC9C;
+}
+.btn-blue{
+    background:#3498DB;
+    transition:.2s linear;
+}
+.btn-blue:hover{
+    background: #2980B9;
+}
+.btn-green{
+    background: #1ABC9C;
+    transition:.2s linear;
+}
+.btn-green:hover{
+    background: #16A085;
+}
+
+/*** Section CSS ***/
+
+.section{
+    text-align: center;
+    margin-top:100px;
+    font-weight: 300;
+}
+.section h3{
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .5rem;
+    font-size:24px;
+    /* margin-bottom:2rem; */
+}
+.section h4{
+    margin-bottom:2rem;
+}
+
+/*** Services CSS ***/
+
+.services{
+    grid-area: services;
+}
+.services__items{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top:50px;
+}
+.services__items i{
+    font-size:18px;
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background: white;
+    color: #2c3e50;
+    margin-bottom:2rem;
+    padding-top:32px;
+    box-shadow: 0 10px 20px rgba(0,0,0,.05);
+}
+.item{
+    padding:50px;
+    margin-right:2rem;
+    min-width: 100px;
+    width:360px;
+}
+.hero__parallax{
+    display:flex;
+    justify-content: center;
+    align-items:center; 
+    position:relative;
+    text-align:center;
+    height: 420px;
+    background: linear-gradient(var(--bg),var(--bg)), url(images/hero.jpg);
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+.hero2{
+    grid-area:hero2;
+    --bg:rgba(26,188,156,0.8);
+    color:white;
+}
+
+/*** Recent Posts CSS ***/
+
+.recent-posts{
+    grid-area:recent;
+}
+.recent-posts h4{
+    margin:2rem 0;
+    cursor: pointer;
+}
+.recent-posts > .post__items > .post img:hover{
+    opacity: .5;
+}
+.post__items{
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin:50px 0;
+    text-align: left;
+}
+.post__items .btn{
+    margin:10px 0;
+}
+.post:not(:last-child){
+    margin-right:30px;
+}
+.post{
+    flex-grow: 1;      /* it can grow */
+    flex-shrink: 1;    /* it can shrink */
+    flex-basis: 250px; /* arbitrary depending on design */
+    min-width: 250px;  /* equal to flex-basis */
+    max-width: 350px;
+}
+.post img{
+    width:100%;
+    height:150px;
+    object-fit: cover;
+}
+
+.hero3{
+    grid-area:hero3;
+    --bg:rgba(44,62,80,0.8);
+    color:white;
+}
+/*** Contact CSS ***/
+
+.contact{
+    grid-area:contact;
+}
+.hero4{
+    grid-area:hero4;
+    --bg:rgba(246,248,249,0.8);
+}
+
+/*** Footer CSS ***/
+
+.footer{
+    width:100%;
+    grid-area:footer;
+    background:#2C3E50;
+    color:#FFFFFF;
+    padding:6rem 6rem 2rem 6rem;
+}
+.footer h4{
+    margin-bottom:1rem;
+    font-size:18px;
+}
+.footer p{
+    margin-bottom:1rem;
+}
+.footer__items{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1px solid #536170;
+}
+.footer__items > div{
+    width:300px;
+    margin:2rem 3rem 2rem 0;
+}
+.copyright{
+    position: relative;
+    height:140px;
+}
+.copyright p{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size:11px;
+}
+
+/*** Form CSS ***/
+
+.form{
+    width:800px;
+    margin:4rem auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-areas: 
+    "name email"
+    "message message";
+    column-gap: 2rem;
+    row-gap:1rem;
+}
+input[type=text]{
+    grid-area:name;
+}
+input[type=email]{
+    grid-area:email;
+}
+textarea{
+    grid-area:message;
+}
+input[type=text] , input[type=email] ,  textarea{
+    padding:.8em 2em;
+    border:2px solid #CBD0D3;
+    width:100%;
+}
+input[type=submit]{
+    border:none;
+    margin:0;
+    width:120px;
+    text-transform: uppercase;
+}
+
+/**** Hamburger Menu CSS ***/
+.menu-toggle{
+    padding:5px 5px;
+    position: absolute;
+    top:40px;
+    right:0px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    height:34px;
+    width:44px;
+    border:1px solid #2C3E50;
+    display: none;
+    transition: background .2s linear;
+}
+.menu-toggle:hover{
+    background: #BDC3C7;
+}
+.menu-toggle.close{
+    background: #BDC3C7;
+}
+.hamburger,
+.hamburger::before,
+.hamburger::after{
+    content:"";
+    display:block;
+    height:3px;
+    width:25px;
+    background: #2C3E50;
+    border-radius: 5px;
+}
+.hamburger::before{
+    position: relative;
+    top:9px;
+}
+.hamburger::after{
+    position: relative;
+    top:15px;
+}
+.navbar.open{
+    max-height:600px;
+}
+
+/*** Media Queries ***/
+
+@media screen and (max-width:980px){
+    .navbar{
+        height:auto;
+        max-height:80px;
+        overflow: hidden;
+        transition:max-height .3s linear;
+
+    }
+    .navbar ul{
+        flex-direction: column;
+        margin-top:80px;
+        /* height:auto; */
+    }
+    .navbar ul ul{
+        position:static;
+        margin:0;
+    }
+    .logo{
+        all:unset;
+        position: absolute;
+        font-weight: bold;
+        top:40px;
+        left:0;
+        transform: translateY(-50%);
+    }
+    .menu-toggle{
+        display: flex;
+        justify-content: center;
+    }
+    .lead{
+        margin:0;
+    }
+    .post__items{
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer__items{
+        flex-direction: column;
+    }
+    .footer__items > div{
+        width:100%;
+        margin:1rem 0;
+    }
+    .copyright p{
+        position: absolute;
+        width:100%;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        font-size:11px;
+    }
+    .post{
+        max-width:700px;
+    }
+    .post:not(:last-child){
+        margin: 10px 0;
+    }
+    .services__items{
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact{
+        padding:4rem;
+    }
+    .form{
+        width:100%;
+        grid-template-areas:
+    "name name"
+    "email email"
+    "message message";
+    }
+}
