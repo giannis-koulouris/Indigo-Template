@@ -422,12 +422,19 @@ input[type=submit]{
         display: flex;
         justify-content: center;
     }
+    .title{
+        font-size:28px;
+    }
     .lead{
         margin:0;
+        font-size:22px;
     }
     .post__items{
         flex-direction: column;
         align-items: center;
+    }
+    .footer{
+        padding:2rem;
     }
     .footer__items{
         flex-direction: column;
@@ -459,6 +466,7 @@ input[type=submit]{
     }
     .form{
         width:100%;
+        margin:1rem 0;
         grid-template-areas:
     "name name"
     "email email"
